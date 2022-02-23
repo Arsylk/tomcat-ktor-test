@@ -1,16 +1,13 @@
-
 import io.ktor.application.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 
-fun Application.main(testing: Boolean = false) {
+fun Application.main() {
     routing {
-        post("/test") {
-            log.info("Before receive text")
+        post("/method") {
             val text = call.receiveText()
-            log.info("After receive text")
-            call.respondText("raw text: '$text'")
+            call.respondText("post text: '$text'")
         }
     }
 }
